@@ -1,0 +1,38 @@
+
+---
+output: github_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Parse the XML files from YR.no.
+
+```{r loadpackage}
+
+library(yrno)
+
+```
+
+## Examples
+
+Return only the forecast data.
+
+```{r nolist}
+
+str(yr())
+
+```
+
+Return a list with location and forecast data. Credit, links and meta data in the XML file are not parsed yet.
+
+```{r list}
+
+str(yr(return_location = TRUE))
+
+
+```
+
