@@ -1,0 +1,21 @@
+Package: yrno
+Type: Package
+Title: Download and Parse XML Files from YR.no
+Version: 0.1.0
+Author: Kenneth Rose
+Maintainer: Kenneth Rose <kennethrose82@gmail.comt>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports:
+    httr,
+    lubridate,
+    tibble,
+    purrr,
+    dplyr,
+    rvest,
+    xml2,
+    tidyr
+RoxygenNote: 5.0.1
