@@ -20,6 +20,8 @@ yr <- function(xml_url = "http://www.yr.no/place/Denmark/Central_Jutland/Aarhus/
     yr_content <-
       list(location = yr_location(yr_content),
            forcast = yr_time)
+  } else {
+    yr_content <- yr_time
   }
 
   yr_content
