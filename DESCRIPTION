@@ -17,5 +17,6 @@ Imports:
     dplyr,
     rvest,
     xml2,
-    tidyr
+    tidyr,
+    selectr
 RoxygenNote: 5.0.1
