@@ -16,4 +16,15 @@
 \description{
 Function to retrieve and parse the xml forecast data from YR.no
 }
+\examples{
+library(dplyr)
+library(yrno)
+
+aarhus <- "http://www.yr.no/place/Denmark/Central_Jutland/Aarhus/forecast.xml"
+cph <- "http://www.yr.no/sted/Danmark/Hovedstaden/København/varsel_time_for_time.xml"
+
+yr(aarhus)
+yr(cph)
+
+}
 
