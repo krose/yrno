@@ -95,8 +95,21 @@ yr_time <- function(yr_content){
     dplyr::bind_cols() %>%
     tibble::as_data_frame()
 
-  yr_df$time_from <- lubridate::ymd_hms(yr_df$time_from, tz = "UTC")
-  yr_df$time_to <- lubridate::ymd_hms(yr_df$time_to, tz = "UTC")
+  try(yr_df$tz <-
+        yr_content %>%
+        rvest::html_node("weatherdata location timezone") %>%
+        rvest::html_attr("id"),
+      silent = TRUE)
+
+  try(yr_df$windspeed_kmh <- yr_df$windspeed_mps * 1.609, silent = TRUE)
+  try(yr_df$temperature_value_f <- yr_df$temperature_value * 9/5 + 32, silent = TRUE)
+
+  yr_df$time_from <- as.POSIXct(strptime(x = yr_df$time_from,
+                                         format = "%Y-%m-%dT%H:%M:%S",
+                                         tz = unique(yr_df$tz)))
+  yr_df$time_to <- as.POSIXct(strptime(x = yr_df$time_to,
+                                       format = "%Y-%m-%dT%H:%M:%S",
+                                       tz = unique(yr_df$tz)))
 
   yr_df
 }
