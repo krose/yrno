@@ -20,3 +20,6 @@ Imports:
     xml2,
     tidyr
 RoxygenNote: 5.0.1
+Suggests: 
+    RPushbullet,
+    mailR
