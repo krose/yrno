@@ -8,22 +8,97 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+This package is a wrapper for the [yr.no](https://www.yr.no) website and it makes it possible to retrieve and parse the weather data in the XML files.
 
-Parse the XML files from YR.no.
+The main functions in the package are:
+
+- yr: This function parse the xml files and it needs a direct link to a file.
+- yr_search: This function returns the first page of the search result, that you get if you do a manual search on the yr.no website.
+- yr_bike_recomendation: If you ride your bike to work, it might be nice to know if it is going to rain or be really windy. You can create tests for minimum and/or maximum values and get a written recommendation or a Boolean.
+
+The functions below a basically helper functions for the bike recomendation, but I have exported them in case someone might find them usefull.
+
+- yr_hour_by_hour: This is a specific function to get the hourly weather forecast.
+- yr_bike_df: Returns hourly forecast data for a specified period.
+
+## Install and load the package
 
 ```{r loadpackage}
+
+if(!require(yrno)){
+  devtools::install_github("krose/yrno")
+}
 
 library(yrno)
 
 ```
 
-## Examples
+## Baby you should ride your ca.. no, sorry.. bike
 
-Return only the forecast data.
+But only if it doesn't rain, isn't to windy or cold! I know.. I should just get on the bike, but bear with me.
+
+In the call below to the yr_bike_recommendation function I define the place and country I want the forecast for. I'm interested in the hours around 7 a.m. for tomorrow, so I define the hour param to 7 and set the hours_safety param to 1, so the forecast period I test is from 6 to 9 a.m. I use a named list for the min_list and max_list, and these lists are used to test if a weather variable should be higher or lower than some value. In the call below I make sure the temperature is at least 7 degrees celcius, there's no expected rain and I won't be biking through a storm.
+
+
+```{r bike1}
+
+cat(yr_bike_recommendation(place = "Copenhagen", 
+                           country = "DK", 
+                           hour = 7, 
+                           forecast_date = Sys.Date() + 1, 
+                           hours_safety = 1, 
+                           min_list = list(temperature_value = 7), 
+                           max_list = list(precipitation_value = 0, 
+                                           windspeed_kmh = 7)))
+
+```
+
+If you're not interested in a written recommendation, then you can get a Boolean instead.
+
+You can test the numeric values in the tibble.
+
+```{r bike2}
+
+yr_bike_df(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
+           hour = 7, 
+           forecast_date = Sys.Date() + 1,
+           hours_safety = 1)
+```
+
+I recommend that you supply the place_url instead like this, as the call above is rather slow. You can finde the url by using the search function or just copy the url from the yr.no website.
+
+```{r bike3}
+
+cat(yr_bike_recommendation(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
+                           hour = 7, 
+                           forecast_date = Sys.Date() + 1, 
+                           hours_safety = 1, 
+                           min_list = list(temperature_value = 7), 
+                           max_list = list(precipitation_value = 0, 
+                                           windspeed_kmh = 7)))
+
+```
+
+You can use other packages to push messages to your phone or inbox with the recommnedation to use your bike or not. I know that you might not all be as lazy or afraid of water as I am, so you could also just use the package to simply get the forecast and conquer the bad weather with appropriate clothes. Some of the packages you can use to push messages, that I know about are:
+
+- [mailR](https://cran.r-project.org/web/packages/mailR/index.html)
+- [gmailr](https://cran.r-project.org/web/packages/gmailr/index.html)
+- [Rpushbullet](https://cran.r-project.org/web/packages/RPushbullet/index.html)
+- [pushoverr](https://cran.r-project.org/web/packages/pushoverr/index.html)
+
+## Weather data
+
+You might not be interested in riding your bike to work, but are instead looking for weather data to use for fun or professionally. If it's for fun, I'd love to know about your project :)
+
+The links to the XML files are static, but you need to do a bit of work to get the links. Use the yr_search function or find the links manually on the [yr.no](https://www.yr.no).
 
 ```{r nolist}
 
-str(yr())
+library(yrno)
+
+aarhus <- "http://www.yr.no/place/Denmark/Central_Jutland/Aarhus/forecast.xml"
+
+str(yr(xml_url = aarhus))
 
 ```
 
@@ -31,8 +106,7 @@ Return a list with location and forecast data. Credit, links and meta data in th
 
 ```{r list}
 
-str(yr(return_location = TRUE))
-
+str(yr(xml_url = aarhus, return_location = TRUE))
 
 ```
 
