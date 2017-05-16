@@ -33,4 +33,3 @@ yr_hour_by_hour(place = "Copenhagen", country = "DK")
 yr_hour_by_hour(place_url = yr_search(place = "Copenhagen")$url[1])
 
 }
-

@@ -48,4 +48,3 @@ yr_bike_recommendation(place_url = "https://www.yr.no/place/Denmark/Capital/Cope
                 max_list = list(precipitation_value = 0.1))
 
 }
-

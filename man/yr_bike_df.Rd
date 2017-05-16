@@ -43,4 +43,3 @@ yr_bike(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
         hours_safety = 1)
 
 }
-

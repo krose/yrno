@@ -27,4 +27,3 @@ yr(aarhus)
 yr(cph)
 
 }
-
