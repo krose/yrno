@@ -90,7 +90,7 @@ You can use other packages to push messages to your phone or inbox with the reco
 
 You might not be interested in riding your bike to work, but are instead looking for weather data to use for fun or professionally. If it's for fun, I'd love to know about your project :)
 
-The links to the XML files are static, but you need to do a bit of work to get the links. Use the yr_search function or find the links manually on the [yr.no](https://www.yr.no).
+The links to the XML files are static and you need to do a bit of work to get the links. Use the yr_search function or find the links manually on the [yr.no](https://www.yr.no).
 
 ```{r nolist}
 
