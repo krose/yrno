@@ -6,6 +6,7 @@
 #' to ride your bike.
 #'
 #' @param place City you want to ride your bike from.
+#' @param country To two digit country code. Ex: "DK", "SE", "US".
 #' @param hour The hour you want to ride your bike.
 #' @param forecast_date Default is current date.
 #' @param hours_safety The safety margin subtracted and
