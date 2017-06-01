@@ -17,6 +17,7 @@
 Function to retrieve and parse the xml forecast data from YR.no
 }
 \examples{
+\dontrun{
 library(dplyr)
 library(yrno)
 
@@ -25,5 +26,5 @@ cph <- "http://www.yr.no/sted/Danmark/Hovedstaden/København/varsel_time_for_tim
 
 yr(aarhus)
 yr(cph)
-
+}
 }

@@ -17,13 +17,13 @@
 #' @param search_no The row number from the yr_search data.frame that is used as place_url.
 #'
 #' @examples
-#'
+#' \dontrun{
 #' library(yrno)
 #'
 #' yr_hour_by_hour(place = "Copenhagen")
 #' yr_hour_by_hour(place = "Copenhagen", country = "DK")
 #' yr_hour_by_hour(place_url = yr_search(place = "Copenhagen")$url[1])
-#'
+#' }
 #' @export
 yr_hour_by_hour <- function(place = NULL, country = NULL, place_url = NULL, search_no = 1){
 

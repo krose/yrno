@@ -27,11 +27,11 @@ Function to get the hourly forecast from YR.no, by supplying
 a city name or a place_url copied from YR.no.
 }
 \examples{
-
+\dontrun{
 library(yrno)
 
 yr_hour_by_hour(place = "Copenhagen")
 yr_hour_by_hour(place = "Copenhagen", country = "DK")
 yr_hour_by_hour(place_url = yr_search(place = "Copenhagen")$url[1])
-
+}
 }

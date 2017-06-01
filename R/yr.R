@@ -8,6 +8,7 @@
 #' @importFrom dplyr %>%
 #'
 #' @examples
+#' \dontrun{
 #' library(dplyr)
 #' library(yrno)
 #'
@@ -16,7 +17,7 @@
 #'
 #' yr(aarhus)
 #' yr(cph)
-#'
+#' }
 #' @export
 yr <- function(xml_url = "http://www.yr.no/place/Denmark/Central_Jutland/Aarhus/forecast.xml", return_location = FALSE){
 

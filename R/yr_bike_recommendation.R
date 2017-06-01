@@ -28,7 +28,7 @@
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
 #' library(yrno)
 #'
 #' yr_bike_recommendation(place = "Copenhagen",
@@ -51,7 +51,7 @@
 #'                        hours_safety = 1,
 #'                        min_list = list(temperature_value = 5),
 #'                        max_list = list(precipitation_value = 0.1))
-#'
+#' }
 yr_bike_recommendation <- function(place = NULL,
                                    country = NULL,
                                    place_url = NULL,

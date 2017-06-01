@@ -27,7 +27,7 @@ wet, then you need weather forecasts about the hours you expect
 to ride your bike.
 }
 \examples{
-
+\dontrun{
 library(yrno)
 
 yr_bike_df(place = "Copenhagen",
@@ -45,5 +45,5 @@ yr_bike_df(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
            hour = 7,
            forecast_date = Sys.Date() + 1,
            hours_safety = 1)
-
+}
 }

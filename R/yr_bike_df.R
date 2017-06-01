@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
 #' library(yrno)
 #'
 #' yr_bike_df(place = "Copenhagen",
@@ -34,7 +34,7 @@
 #'            hour = 7,
 #'            forecast_date = Sys.Date() + 1,
 #'            hours_safety = 1)
-#'
+#' }
 yr_bike_df <- function(place = NULL,
                        country = NULL,
                        place_url = NULL,

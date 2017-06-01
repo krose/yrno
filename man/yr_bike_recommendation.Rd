@@ -43,7 +43,7 @@ you are going to bother fighting the weather. This function can help you
 plan and/or decide what to do.
 }
 \examples{
-
+\dontrun{
 library(yrno)
 
 yr_bike_recommendation(place = "Copenhagen",
@@ -66,5 +66,5 @@ yr_bike_recommendation(place_url = "https://www.yr.no/place/Denmark/Capital/Cope
                        hours_safety = 1,
                        min_list = list(temperature_value = 5),
                        max_list = list(precipitation_value = 0.1))
-
+}
 }
