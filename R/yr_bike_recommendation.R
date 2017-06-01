@@ -1,8 +1,13 @@
 
-#' Figure out if you are going to be wet, if you ride your bike to work.
+#' Get a recommendation for your next bike ride.
 #'
-#' Function to get the forecasts for when you are going to ride your
-#' bike to and from work.
+#' Function to get the weather forecast and a recommendation for a
+#' specified hourly period. Usually you get
+#' weather forecasts for the whole day instead of the hours that you are
+#' interested in, for example, the hours you usually bike to or from work.
+#' This makes it hard to plan the clothes you need to wear or even decide if
+#' you are going to bother fighting the weather. This function can help you
+#' plan and/or decide what to do.
 #'
 #' @param place City you want to ride your bike from. It is recommended to
 #'     use the place_url instead of place (and country) as these params needs
