@@ -22,7 +22,7 @@
 #' yr_bike_df(place = "Copenhagen",
 #'            country = "DK",
 #'            hour = 7,
-#'            forecast_data = Sys.Date() + 1,
+#'            forecast_date = Sys.Date() + 1,
 #'            hours_safety = 1)
 #' yr_bike_df(hour = 7, forecast_date = Sys.Date() + 1,
 #'            hours_safety = 1,

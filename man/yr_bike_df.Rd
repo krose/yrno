@@ -10,6 +10,8 @@ yr_bike_df(place = NULL, country = NULL, place_url = NULL, hour,
 \arguments{
 \item{place}{City you want to ride your bike from.}
 
+\item{country}{To two digit country code. Ex: "DK", "SE", "US".}
+
 \item{place_url}{The place url. Ex http://www.yr.no/place/Denmark/Capital/Copenhagen}
 
 \item{hour}{The hour you want to ride your bike.}
@@ -26,20 +28,22 @@ to ride your bike.
 }
 \examples{
 
-yr_bike(place = "Copenhagen",
-        country = "DK",
-        hour = 7,
-        forecast_data = Sys.Date() + 1,
-        hours_safety = 1)
-yr_bike(hour = 7, forecast_date = Sys.Date() + 1,
-        hours_safety = 1,
-        place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/")
-yr_bike(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
-        hour = 7, forecast_date = Sys.Date() + 1,
-        hours_safety = 1)
-yr_bike(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
-        hour = 7,
-        forecast_date = Sys.Date() + 1,
-        hours_safety = 1)
+library(yrno)
+
+yr_bike_df(place = "Copenhagen",
+           country = "DK",
+           hour = 7,
+           forecast_date = Sys.Date() + 1,
+           hours_safety = 1)
+yr_bike_df(hour = 7, forecast_date = Sys.Date() + 1,
+           hours_safety = 1,
+           place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/")
+yr_bike_df(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
+           hour = 7, forecast_date = Sys.Date() + 1,
+           hours_safety = 1)
+yr_bike_df(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
+           hour = 7,
+           forecast_date = Sys.Date() + 1,
+           hours_safety = 1)
 
 }
