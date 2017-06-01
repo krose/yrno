@@ -24,6 +24,8 @@
 #'
 #' @examples
 #'
+#' library(yrno)
+#'
 #' yr_bike_recommendation("Copenhagen", 7, Sys.Date() + 1, hours_safety = 1)
 #' yr_bike_recommendation(hour = 7, forecast_date = Sys.Date() + 1,
 #'                 hours_safety = 1,
