@@ -19,6 +19,8 @@ from the YR.no website.}
 
 \item{place_url}{The place_url can be copied directly from the YR.no
 website and used instead of the place param.}
+
+\item{search_no}{The row number from the yr_search data.frame that is used as place_url.}
 }
 \description{
 Function to get the hourly forecast from YR.no, by supplying
