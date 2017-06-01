@@ -31,19 +31,26 @@
 #'
 #' library(yrno)
 #'
-#' yr_bike_recommendation("Copenhagen", 7, Sys.Date() + 1, hours_safety = 1)
-#' yr_bike_recommendation(hour = 7, forecast_date = Sys.Date() + 1,
-#'                 hours_safety = 1,
-#'                 place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/")
+#' yr_bike_recommendation(place = "Copenhagen",
+#'                        hour = 7,
+#'                        forecast_date = Sys.Date() + 1,
+#'                        hours_safety = 1)
+#'
 #' yr_bike_recommendation(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
-#'                 hour = 7, forecast_date = Sys.Date() + 1,
-#'                 hours_safety = 1,
-#'                 max_list = list(temperature_value = 5))
+#'                        hour = 7,
+#'                        forecast_date = Sys.Date() + 1,
+#'                        hours_safety = 1)
+#'
 #' yr_bike_recommendation(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
-#'                 hour = 7, forecast_date = Sys.Date() + 1,
-#'                 hours_safety = 1,
-#'                 min_list = list(temperature_value = 5),
-#'                 max_list = list(precipitation_value = 0.1))
+#'                        hour = 7, forecast_date = Sys.Date() + 1,
+#'                        hours_safety = 1,
+#'                        max_list = list(temperature_value = 5))
+#'
+#' yr_bike_recommendation(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
+#'                        hour = 7, forecast_date = Sys.Date() + 1,
+#'                        hours_safety = 1,
+#'                        min_list = list(temperature_value = 5),
+#'                        max_list = list(precipitation_value = 0.1))
 #'
 yr_bike_recommendation <- function(place = NULL,
                                    country = NULL,
