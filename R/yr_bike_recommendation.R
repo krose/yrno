@@ -14,6 +14,10 @@
 #' @param forecast_date Default is current date.
 #' @param hours_safety The safety margin subtracted and
 #'     added to the hour param.
+#' @param min_list Supply a named list of weather variables to
+#'     test if they are higher than or equal to the supplied value.
+#' @param max_list Supply a named list of weather variables to
+#'     test if they are lower than or equal to the supplied value.
 #' @param return_boolean Do you want the function to return a boolean?
 #'
 #' @export
