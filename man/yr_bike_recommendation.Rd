@@ -2,7 +2,7 @@
 % Please edit documentation in R/yr_bike_recommendation.R
 \name{yr_bike_recommendation}
 \alias{yr_bike_recommendation}
-\title{Figure out if you are going to be wet, if you ride your bike to work.}
+\title{Get a recommendation for your next bike ride.}
 \usage{
 yr_bike_recommendation(place = NULL, country = NULL, place_url = NULL,
   hour, forecast_date = Sys.Date() + 1, hours_safety = 0, min_list = NULL,
@@ -25,26 +25,46 @@ Ex http://www.yr.no/place/Denmark/Capital/Copenhagen}
 \item{hours_safety}{The safety margin subtracted and
 added to the hour param.}
 
+\item{min_list}{Supply a named list of weather variables to
+test if they are higher than or equal to the supplied value.}
+
+\item{max_list}{Supply a named list of weather variables to
+test if they are lower than or equal to the supplied value.}
+
 \item{return_boolean}{Do you want the function to return a boolean?}
 }
 \description{
-Function to get the forecasts for when you are going to ride your
-bike to and from work.
+Function to get the weather forecast and a recommendation for a
+specified hourly period. Usually you get
+weather forecasts for the whole day instead of the hours that you are
+interested in, for example, the hours you usually bike to or from work.
+This makes it hard to plan the clothes you need to wear or even decide if
+you are going to bother fighting the weather. This function can help you
+plan and/or decide what to do.
 }
 \examples{
 
-yr_bike_recommendation("Copenhagen", 7, Sys.Date() + 1, hours_safety = 1)
-yr_bike_recommendation(hour = 7, forecast_date = Sys.Date() + 1,
-                hours_safety = 1,
-                place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/")
+library(yrno)
+
+yr_bike_recommendation(place = "Copenhagen",
+                       hour = 7,
+                       forecast_date = Sys.Date() + 1,
+                       hours_safety = 1)
+
 yr_bike_recommendation(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
-                hour = 7, forecast_date = Sys.Date() + 1,
-                hours_safety = 1,
-                max_list = list(temperature_value = 5))
+                       hour = 7,
+                       forecast_date = Sys.Date() + 1,
+                       hours_safety = 1)
+
 yr_bike_recommendation(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
-                hour = 7, forecast_date = Sys.Date() + 1,
-                hours_safety = 1,
-                min_list = list(temperature_value = 5),
-                max_list = list(precipitation_value = 0.1))
+                       hour = 7, forecast_date = Sys.Date() + 1,
+                       hours_safety = 1,
+                       max_list = list(temperature_value = 5))
+
+yr_bike_recommendation(place_url = "https://www.yr.no/place/Denmark/Capital/Copenhagen/",
+                       hour = 7, forecast_date = Sys.Date() + 1,
+                       hours_safety = 1,
+                       min_list = list(temperature_value = 5),
+                       max_list = list(precipitation_value = 0.1))
 
 }
