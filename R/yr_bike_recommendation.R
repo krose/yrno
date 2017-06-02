@@ -75,7 +75,7 @@ yr_bike_recommendation <- function(place = NULL,
   # Recommendation
   ####################################
 
-  expectations <- list(hours = sprintf("\n\nIn the hours between %i and %i, the weather is expected to be %s.\n",
+  expectations <- list(hours = sprintf("In the hours between %i and %i, the weather is expected to be %s.\n",
                                        min(place_data$hour_of_day),
                                        max(place_data$hour_of_day),
                                        tolower(paste(unique(place_data$symbol_name), collapse = " / "))),
@@ -93,6 +93,12 @@ yr_bike_recommendation <- function(place = NULL,
                                              as.integer(round(min(place_data$temperature_value_f), 0)),
                                              max(place_data$temperature_value),
                                              as.integer(round(max(max(place_data$temperature_value_f)), 0))))
+
+  if(!is.null(min_list) | !is.null(max_list)){
+
+    # Insert two newlines to sepearte the tests with the forecast.
+    expectations[["hours"]] <- paste0("\n\n", expectations[["hours"]])
+  }
 
   if(!is.null(max_list)){
     max_list_test <- lapply(seq_along(max_list),
